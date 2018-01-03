@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MusicNet
+
+  Created by Genaro Codina Reverter on 03/01/2018.
+  Copyright © 2018 Genaro Codina Reverter. All rights reserved.
+*/
+
+"duration" = "Duration";
+"genre" = "Genre";
+"price" = "Price";
+"previous" = "Previous";
+"next" = "Next";
