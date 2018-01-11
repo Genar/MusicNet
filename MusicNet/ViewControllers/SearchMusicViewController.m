@@ -26,6 +26,7 @@ static NSString* kMusicItemCellIdentifier = @"MusicItemCellId";
 static NSString* kDurationKey= @"duration";
 static NSString* kGenreKey= @"genre";
 static NSString* kPriceKey= @"price";
+static NSString* kSearchPlaceholder = @"search_placeholder";
 
 static NSString* kTrackTimeMillis = @"trackTimeMillis";
 static NSString* kPrimaryGenreName = @"primaryGenreName";
@@ -40,10 +41,7 @@ static unsigned long kNumberOfSongs = 200;
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    NSString* duration = NSLocalizedString(kDurationKey, "");
-    NSString* genre = NSLocalizedString(kGenreKey, "");
-    NSString* price = NSLocalizedString(kPriceKey, "");
-    self.searchBar.scopeButtonTitles = @[duration, genre, price];
+    [self setupControls];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,6 +188,17 @@ static unsigned long kNumberOfSongs = 200;
     
     selectedIndexPath = indexPath;
     [self.foundItemsTableView selectRowAtIndexPath:selectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+}
+
+#pragma mark - Private methods
+- (void)setupControls {
+    
+    NSString* duration = NSLocalizedString(kDurationKey, "");
+    NSString* genre = NSLocalizedString(kGenreKey, "");
+    NSString* price = NSLocalizedString(kPriceKey, "");
+    NSString* searchTextPlaceholder = NSLocalizedString(kSearchPlaceholder, "");
+    self.searchBar.scopeButtonTitles = @[duration, genre, price];
+    self.searchBar.placeholder = searchTextPlaceholder;
 }
 
 @end

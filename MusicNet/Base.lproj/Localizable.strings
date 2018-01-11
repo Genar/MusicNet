@@ -11,3 +11,4 @@
 "price" = "Price";
 "previous" = "Previous";
 "next" = "Next";
+"search_placeholder" = "Type and item to search";

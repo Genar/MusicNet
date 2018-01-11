@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VVa-eS-wQg">
+                            <searchBar contentMode="redraw" placeholder="Type an item to search" showsCancelButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VVa-eS-wQg">
                                 <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
