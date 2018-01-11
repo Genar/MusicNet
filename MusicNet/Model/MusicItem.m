@@ -11,7 +11,7 @@
 @implementation MusicItem
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
+
     if ([key isEqualToString:@"id"]) {
         // MusicItem must not have a field named "id",
         // in order to avoid clashing the field "id" which comes
@@ -34,8 +34,14 @@
         // and then in this section of the code we can set up:
         // self.itemDescription = value;
     } else {
-        NSLog(@"-----------KEY:%@", key);
-        [super setValue:value forKey:key];
+        // Comment the following two lines of code
+        // in a production environment. The following
+        // two lines of code are useful in case we want
+        // the app to crash in order to detect "key/value"
+        // pairs in the JSON which have not declared as a
+        // property in MusicItem.h
+//        NSLog(@"-----------KEY:%@", key);
+//        [super setValue:value forKey:key];
     }
 }
 

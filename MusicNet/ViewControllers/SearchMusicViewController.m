@@ -31,6 +31,8 @@ static NSString* kTrackTimeMillis = @"trackTimeMillis";
 static NSString* kPrimaryGenreName = @"primaryGenreName";
 static NSString* kTrackPrice = @"trackPrice";
 
+static unsigned long kNumberOfSongs = 200;
+
 @synthesize foundItemsTableView;
 @synthesize searchBar;
 @synthesize musicItems;
@@ -67,6 +69,7 @@ static NSString* kTrackPrice = @"trackPrice";
     
     if ([segue.identifier isEqualToString:kPlayMusicSegue]) {
         PlayViewController* playViewController = (PlayViewController*)segue.destinationViewController;
+        playViewController.delegatePassDataBack = self;
         playViewController.musicItems = self.musicItems;
         playViewController.indexPath = selectedIndexPath;
     }
@@ -167,7 +170,7 @@ static NSString* kTrackPrice = @"trackPrice";
         NSString* trimmedString = [regex stringByReplacingMatchesInString:inputText options:0 range:NSMakeRange(0, [inputText length]) withTemplate:@" "];
         NSString* stringWithPlus = [trimmedString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
         [self.view endEditing:YES];
-        [[ConnectionManager sharedInstance] searchWithString:stringWithPlus withLimit:50];
+        [[ConnectionManager sharedInstance] searchWithString:stringWithPlus withLimit:kNumberOfSongs];
     }
 }
 
@@ -180,6 +183,13 @@ static NSString* kTrackPrice = @"trackPrice";
     
     [self sortItems];
     [self.foundItemsTableView reloadData];
+}
+
+#pragma mark - SendDataBack delegates
+- (void)sendIndex:(NSIndexPath*) indexPath {
+    
+    selectedIndexPath = indexPath;
+    [self.foundItemsTableView selectRowAtIndexPath:selectedIndexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 @end

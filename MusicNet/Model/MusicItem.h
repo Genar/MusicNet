@@ -61,6 +61,7 @@
 @property (nonatomic, strong) NSString* artworkUrl600;
 @property (nonatomic, strong) NSArray* genreIds;
 @property (nonatomic, strong) NSArray* genres;
+@property (nonatomic, strong) NSString* copyright;
 
 @end
 

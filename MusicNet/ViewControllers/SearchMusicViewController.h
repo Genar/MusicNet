@@ -10,8 +10,8 @@
 
 @interface SearchMusicViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableView *foundItemsTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar* searchBar;
+@property (weak, nonatomic) IBOutlet UITableView* foundItemsTableView;
 
 @property(nonatomic, strong) NSArray* musicItems;
 

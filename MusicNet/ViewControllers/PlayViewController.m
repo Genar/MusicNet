@@ -18,6 +18,8 @@
 
 @implementation PlayViewController
 
+@synthesize delegatePassDataBack;
+
 static NSString* kPreviousKey = @"previous";
 static NSString* kNextKey = @"next";
 
@@ -38,6 +40,11 @@ static NSString* kNextKey = @"next";
     [self setUpMedia];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [delegatePassDataBack sendIndex:self.indexPath];
+}
+
 - (void)setUpMedia {
     
     musicItem = [self.musicItems objectAtIndex:self.indexPath.row];
@@ -49,10 +56,10 @@ static NSString* kNextKey = @"next";
                                                 formatOutputDate:@"EEE MMM d YYYY"];
     self.genreLabel.text = musicItem.primaryGenreName;
     UIImage* placeholder = [UIImage imageNamed:@"user"];
-    NSURL *urlImage = [NSURL URLWithString:musicItem.artworkUrl100];
+    NSURL* urlImage = [NSURL URLWithString:musicItem.artworkUrl100];
     [self.artistImageView setImageWithURL:urlImage placeholderImage:placeholder];
-    NSURL *urlPreview = [NSURL URLWithString:musicItem.previewUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:urlPreview];
+    NSURL* urlPreview = [NSURL URLWithString:musicItem.previewUrl];
+    NSURLRequest* request = [NSURLRequest requestWithURL:urlPreview];
     [self.artistWebView loadRequest:request];
 }
 
